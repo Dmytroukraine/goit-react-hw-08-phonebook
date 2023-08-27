@@ -1,8 +1,4 @@
-/* @import-normalize; */
-
-* {
-  box-sizing: border-box;
-}
+@import-normalize; /* bring in normalize.css styles */
 
 body {
   margin: 0;
@@ -11,20 +7,19 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-color: cadetblue; */
 }
 
-div{
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex!important;
+body::before {
+  content: '';
+  position: fixed; 
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0; 
+  z-index: -1; 
   
+  background: url('./images/phonebookBackground.jpg') center / cover no-repeat;
+  filter: blur(5px);
 }
 
 code {
@@ -32,23 +27,44 @@ code {
     monospace;
 }
 
+/* =============Base================ */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 {
-  margin: 0;
-  padding: 0;
-}
-
-button {
-  border: none;
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 ul,
 ol {
   list-style: none;
+  padding-left: 0;
   margin: 0;
-  padding: 0;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ================================ */

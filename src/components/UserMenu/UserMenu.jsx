@@ -1,22 +1,49 @@
-import React from 'react';
+import { HiOutlineLogout } from 'react-icons/hi';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../redux/authSlice';
-import { selectUserEmail } from '../redux/authSlice';
+import { useNavigate } from 'react-router-dom';
 
-const UserMenu = () => {
+import { logout } from 'redux/auth/authOperations';
+import { selectAuthUser } from 'redux/auth/authSelectors';
+
+import { useMedia } from 'react-use';
+
+import { toast } from 'react-toastify';
+import { FcReading } from 'react-icons/fc';
+import { UserMenuWrapper, Hello, LogoutBtn } from './UserMenu.styled';
+// ===========================================
+
+export const UserMenu = () => {
+  const isMobile = useMedia('(max-width: 768px)');
+  const { name } = useSelector(selectAuthUser);
+
   const dispatch = useDispatch();
-  const userEmail = useSelector(selectUserEmail);
+  const navigate = useNavigate();
 
-  const handleLogout = () => {
-    dispatch(logout());
+  const onLogout = () => {
+    dispatch(logout()).then(response => {
+      if (response.payload === 'Request failed with status code 400') {
+        toast.error('Oops...Something went wrong. Try later!');
+        return;
+      }
+      if (!response.payload) {
+        toast.success('You are successfully logout!');
+        navigate('/', { replace: true });
+      }
+    });
   };
 
   return (
-    <div>
-      <p>{userEmail}</p>
-      <button onClick={handleLogout}>Logout</button>
-    </div>
+    <UserMenuWrapper>
+      {!isMobile && (
+        <Hello>
+          <FcReading size={25} style={{ marginRight: '10px' }} /> Hello, {name}!
+        </Hello>
+      )}
+
+      <LogoutBtn onClick={onLogout} type="button">
+        Logout
+        <HiOutlineLogout />
+      </LogoutBtn>
+    </UserMenuWrapper>
   );
 };
-
-export default UserMenu;

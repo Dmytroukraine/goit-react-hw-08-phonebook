@@ -1,39 +1,81 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { selectIsLoggedIn } from '../redux/authSlice';
-import Navigation from '../components/Navigation/Navigation';
-import ContactForm from '../components/ContactForm/ContactForm';
-import ContactList from '../components/ContactList/ContactList';
-import Filter from '../components/Filter/Filter';
-import RegisterPage from '../components/RegisterPage/RegisterPage';
-import LoginPage from '../components/LoginPage/LoginPage';
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { lazy, useEffect } from 'react';
 
-const App = () => {
-  const isLoggedIn = useSelector(selectIsLoggedIn);
+import { Layout } from './Layout/Layout';
+
+import {
+  selectAuthIsRefreshingCurrentUser,
+  selectAuthToken,
+} from 'redux/auth/authSelectors';
+import { refreshCurrentUser } from 'redux/auth/authOperations';
+
+import { fetchContacts } from 'redux/contacts/contactsOperations';
+import { PublicRoute } from 'HOCs/PublicRoute';
+import { PrivateRoute } from 'HOCs/PrivateRoute';
+
+const HomePage = lazy(() => import('pages/HomePage/HomePage'));
+const PhonebookPage = lazy(() => import('pages/PhonebookPage/PhonebookPage'));
+const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
+const LogInPage = lazy(() => import('pages/LogInPage/LogInPage'));
+//============================================================
+
+export const App = () => {
+  const dispatch = useDispatch();
+  const token = useSelector(selectAuthToken);
+  const isRefreshingCurrentUser = useSelector(
+    selectAuthIsRefreshingCurrentUser
+  );
+
+  useEffect(() => {
+    dispatch(refreshCurrentUser());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (token) dispatch(fetchContacts());
+  }, [dispatch, token]);
 
   return (
-    <div>
-      {isLoggedIn && <Navigation />}
-      <Router>
-        <Switch>
-          <Route path="/register" component={RegisterPage} />
-          <Route path="/login" component={LoginPage} />
-          {isLoggedIn ? (
-            <>
-              <h1>Phonebook</h1>
-              <ContactForm />
-              <h2>Contacts</h2>
-              <Filter />
-              <ContactList />
-            </>
-          ) : (
-            <Redirect to="/login" />
-          )}
-        </Switch>
-      </Router>
-    </div>
+    <>
+      {!isRefreshingCurrentUser && (
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route
+              index
+              element={
+                <PublicRoute>
+                  <HomePage />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="phonebook"
+              element={
+                <PrivateRoute>
+                  <PhonebookPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="register"
+              element={
+                <PublicRoute restricted>
+                  <RegisterPage />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="login"
+              element={
+                <PublicRoute restricted>
+                  <LogInPage />
+                </PublicRoute>
+              }
+            />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Route>
+        </Routes>
+      )}
+    </>
   );
 };
-
-export default App;

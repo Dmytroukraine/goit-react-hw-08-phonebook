@@ -1,19 +1,27 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectAuthToken } from 'redux/auth/authSelectors';
 
-const Navigation = () => {
+import { Box } from 'components/Box';
+import { NavStyled, LinkNav } from './Navigation.styled';
+
+export const Navigation = () => {
+  const token = useSelector(selectAuthToken);
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/contacts">Contacts</Link>
-        </li>
-        <li>
-          <Link to="/logout">Logout</Link>
-        </li>
-      </ul>
-    </nav>
+    <>
+      <Box as={'nav'} display="flex">
+        <NavStyled>
+          <li>
+            <LinkNav to="/" end>
+              Home
+            </LinkNav>
+          </li>
+          {token && (
+            <li>
+              <LinkNav to="phonebook">Phonebook</LinkNav>
+            </li>
+          )}
+        </NavStyled>
+      </Box>
+    </>
   );
 };
-
-export default Navigation;
