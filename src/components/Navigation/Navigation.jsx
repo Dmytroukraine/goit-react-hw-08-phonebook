@@ -12,12 +12,12 @@ export const Navigation = () => {
         <NavStyled>
           <li>
             <LinkNav to="/" end>
-              Home
+              Дім
             </LinkNav>
           </li>
           {token && (
             <li>
-              <LinkNav to="phonebook">Phonebook</LinkNav>
+              <LinkNav to="phonebook">Телефонна книга</LinkNav>
             </li>
           )}
         </NavStyled>

@@ -40,7 +40,7 @@ export const Phonebook = ({ onAddContact }) => {
     <>
       <form onSubmit={onFormSubmitAddContact}>
         <Label>
-          Name
+          Ім"я
           <Input
             onChange={onInputChange}
             type="text"
@@ -52,7 +52,7 @@ export const Phonebook = ({ onAddContact }) => {
           />
         </Label>
         <Label>
-          Number
+          Номер
           <Input
             onChange={onInputChange}
             value={number}
@@ -65,7 +65,7 @@ export const Phonebook = ({ onAddContact }) => {
           />
         </Label>
         <Button type="submit">
-          Add contact <VscAdd />
+          Додати контакт <VscAdd />
         </Button>
       </form>
     </>

@@ -63,10 +63,10 @@ export const LoginForm = () => {
 
   return (
     <>
-      <Title>Log in</Title>
+      <Title>Увійти</Title>
       <form onSubmit={onFormSubmit}>
         <Label>
-          Email
+          Пошта
           <Input
             onChange={onInputChange}
             value={email}
@@ -77,7 +77,7 @@ export const LoginForm = () => {
           />
         </Label>
         <Label>
-          Password
+          Пароль
           <Input
             onChange={onInputChange}
             value={password}
@@ -89,7 +89,7 @@ export const LoginForm = () => {
         </Label>
 
         <Button type="submit">
-          Log in <VscPass />
+          Увійти <VscPass />
         </Button>
       </form>
       {isLoading && <Loader />}

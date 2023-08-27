@@ -70,10 +70,10 @@ export const RegistrationForm = () => {
 
   return (
     <>
-      <Title>Registration form</Title>
+      <Title>Реєстраційна форма</Title>
       <form onSubmit={onFormSubmit}>
         <Label>
-          Name
+          Ім"я
           <Input
             onChange={onInputChange}
             type="text"
@@ -84,7 +84,7 @@ export const RegistrationForm = () => {
           />
         </Label>
         <Label>
-          Email
+          Пошта
           <Input
             onChange={onInputChange}
             value={email}
@@ -95,7 +95,7 @@ export const RegistrationForm = () => {
           />
         </Label>
         <Label>
-          Password
+          Пароль
           <Input
             onChange={onInputChange}
             value={password}
@@ -107,7 +107,7 @@ export const RegistrationForm = () => {
         </Label>
 
         <Button type="submit">
-          Register <VscPass />
+          Реєстрація <VscPass />
         </Button>
       </form>
       {isLoading && <Loader />}
