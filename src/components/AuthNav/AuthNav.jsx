@@ -10,11 +10,11 @@ export const AuthNav = () => {
         <AuthStyled>
           <li>
             <LinkStyled to="register">
-              Sign up <HiOutlineUserAdd />
+              Зареєструйся <HiOutlineUserAdd />
             </LinkStyled>
           </li>
           <li>
-            <LinkStyled to="login">Log in<HiOutlineLogin/></LinkStyled>
+            <LinkStyled to="login">Увійти<HiOutlineLogin/></LinkStyled>
           </li>
         </AuthStyled>
       </Box>

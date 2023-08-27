@@ -53,10 +53,10 @@ export const ContactDataUpdateForm = ({ onCloseModal, updateContactId }) => {
 
   return (
     <>
-      <h2>Update contact</h2>
+      <h2>Оновити контакти</h2>
       <form onSubmit={onFormSubmitAddContact}>
         <Label>
-          Name
+          Ім"я
           <Input
             onChange={onInputChange}
             type="text"
@@ -68,7 +68,7 @@ export const ContactDataUpdateForm = ({ onCloseModal, updateContactId }) => {
           />
         </Label>
         <Label>
-          Number
+          Номер
           <Input
             onChange={onInputChange}
             value={number}
@@ -81,7 +81,7 @@ export const ContactDataUpdateForm = ({ onCloseModal, updateContactId }) => {
           />
         </Label>
         <Button>
-          Submit changes <VscCheck />
+          Прийняти зміни <VscCheck />
         </Button>
       </form>
     </>

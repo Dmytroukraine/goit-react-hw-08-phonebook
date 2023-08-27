@@ -11,13 +11,13 @@ const HomePage = () => {
     <HomePageMain>
       {token ? (
         <>
-          <HomePageTitle> Welcome, {name}🎉 </HomePageTitle>
-          <HomePageInfo>Your phonebook wait for you!" </HomePageInfo>
+          <HomePageTitle> Вітаю, {name} </HomePageTitle>
+          <HomePageInfo>Твоя персональна телефонна книга!" </HomePageInfo>
         </>
       ) : (
         <>
-          <HomePageTitle> Welcome to Phonebook App🎉 </HomePageTitle>
-          <HomePageInfo>Please, "Sign up" or "Log in"👌 </HomePageInfo>
+          <HomePageTitle> Ласкаво прошу до телефонної книги </HomePageTitle>
+          <HomePageInfo>Будь-ласка, "Зареєструйся", або "Увійди"</HomePageInfo>
         </>
       )}
     </HomePageMain>
