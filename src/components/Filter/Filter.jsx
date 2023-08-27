@@ -5,7 +5,7 @@ export const Filter = ({ onChangeFilter }) => {
   return (
     <>
       <Label>
-        Find contacts by name
+        Шукай контакт за ім"ям
         <Input onChange={e => onChangeFilter(e)} type="text" name="filter" />
       </Label>
     </>

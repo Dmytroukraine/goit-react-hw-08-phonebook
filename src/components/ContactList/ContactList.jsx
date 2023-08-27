@@ -37,7 +37,7 @@ export const ContactList = () => {
 
   return (
     <>
-      {!contacts.length && <p>Your phonebook is empty</p>}
+      {!contacts.length && <p>Твоя телефонна книга пуста</p>}
       {filterContacts.length > 0 ? (
         <Ul>
           {filterContacts.map(({ name, number, id }) => (
