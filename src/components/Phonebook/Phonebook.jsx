@@ -40,7 +40,7 @@ export const Phonebook = ({ onAddContact }) => {
     <>
       <form onSubmit={onFormSubmitAddContact}>
         <Label>
-          ІмU+0275Cя
+          Ім'я
           <Input
             onChange={onInputChange}
             type="text"
@@ -61,7 +61,7 @@ export const Phonebook = ({ onAddContact }) => {
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
-            placeholder="099-999-99-99"
+            placeholder="Введіть номер"
           />
         </Label>
         <Button type="submit">

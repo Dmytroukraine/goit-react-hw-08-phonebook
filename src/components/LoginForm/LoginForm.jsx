@@ -45,7 +45,7 @@ export const LoginForm = () => {
         return;
       }
       if (response.payload === 'Network Error') {
-        toast.error('Ой-йо..Помилка звU+0275Cязку!');
+        toast.error('Ой-йо..Помилка мережі!');
         return;
       }
       if (response.payload.token) {
@@ -73,7 +73,7 @@ export const LoginForm = () => {
             type="email"
             name="email"
             required
-            placeholder="Enter your email"
+            placeholder="Введіть свою пошту"
           />
         </Label>
         <Label>
@@ -84,7 +84,7 @@ export const LoginForm = () => {
             type="password"
             name="password"
             required
-            placeholder="Enter password"
+            placeholder="Введіть пароль"
           />
         </Label>
 

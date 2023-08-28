@@ -47,11 +47,11 @@ export const RegistrationForm = () => {
     e.preventDefault();
     dispatch(register(userRegisterData)).then(response => {
       if (response.payload === 'Запит не виконано, помилка - 400') {
-        toast.error('Ой-йо...Користувач з таким імU+0275Cям вже існує!');
+        toast.error('Ой-йо...Такий користувач вже існує!');
         return;
       }
       if (response.payload === 'Network Error') {
-        toast.error('Ой-йо...Помилка звU+0275Cязку!');
+        toast.error('Ой-йо...Помилка мережі!');
         return;
       }
       if (response.payload.token) {
@@ -73,14 +73,14 @@ export const RegistrationForm = () => {
       <Title>Реєстраційна форма</Title>
       <form onSubmit={onFormSubmit}>
         <Label>
-          ІмU+0275Cя
+          Ім'я
           <Input
             onChange={onInputChange}
             type="text"
             name="name"
             value={name}
             required
-            placeholder="Enter user name"
+            placeholder="Введіть своє ім'я"
           />
         </Label>
         <Label>
@@ -91,7 +91,7 @@ export const RegistrationForm = () => {
             type="email"
             name="email"
             required
-            placeholder="Enter your email"
+            placeholder="Введіть свою пошту"
           />
         </Label>
         <Label>
@@ -102,7 +102,7 @@ export const RegistrationForm = () => {
             type="password"
             name="password"
             required
-            placeholder="Enter password"
+            placeholder="Введіть пароль"
           />
         </Label>
 
