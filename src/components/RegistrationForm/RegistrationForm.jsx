@@ -46,16 +46,16 @@ export const RegistrationForm = () => {
   const onFormSubmit = e => {
     e.preventDefault();
     dispatch(register(userRegisterData)).then(response => {
-      if (response.payload === 'Request failed with status code 400') {
-        toast.error('Oops...User with such data already exists!');
+      if (response.payload === 'Запит не виконано, помилка - 400') {
+        toast.error('Ой-йо...Користувач з таким імU+0275Cям вже існує!');
         return;
       }
       if (response.payload === 'Network Error') {
-        toast.error('Oops...Network Error!');
+        toast.error('Ой-йо...Помилка звU+0275Cязку!');
         return;
       }
       if (response.payload.token) {
-        toast.success('You are successfully sign up!');
+        toast.success('Вітаю! Ти успішно зареєструвався!');
         navigate('/', { replace: true });
         onFormReset();
       }
@@ -73,7 +73,7 @@ export const RegistrationForm = () => {
       <Title>Реєстраційна форма</Title>
       <form onSubmit={onFormSubmit}>
         <Label>
-          Ім"я
+          ІмU+0275Cя
           <Input
             onChange={onInputChange}
             type="text"

@@ -74,7 +74,7 @@ export const ContactList = () => {
           ))}
         </Ul>
       ) : (
-        contacts.length > 0 && <p>Nothing was found...</p>
+        contacts.length > 0 && <p>Нічого не знайдено...</p>
       )}
       {isModalOpen&&<Modal onCloseModal={onCloseModal} updateContactId={updateContactId}/>}
     </>

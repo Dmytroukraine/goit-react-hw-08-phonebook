@@ -56,7 +56,7 @@ export const ContactDataUpdateForm = ({ onCloseModal, updateContactId }) => {
       <h2>Оновити контакти</h2>
       <form onSubmit={onFormSubmitAddContact}>
         <Label>
-          Ім"я
+          ІмU+0275Cя
           <Input
             onChange={onInputChange}
             type="text"

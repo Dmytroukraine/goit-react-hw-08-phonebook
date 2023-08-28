@@ -12,7 +12,7 @@ const HomePage = () => {
       {token ? (
         <>
           <HomePageTitle> Вітаю, {name} </HomePageTitle>
-          <HomePageInfo>Твоя персональна телефонна книга!" </HomePageInfo>
+          <HomePageInfo>Твоя персональна телефонна книга! </HomePageInfo>
         </>
       ) : (
         <>

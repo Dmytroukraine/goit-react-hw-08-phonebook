@@ -40,7 +40,7 @@ export const Phonebook = ({ onAddContact }) => {
     <>
       <form onSubmit={onFormSubmitAddContact}>
         <Label>
-          Ім"я
+          ІмU+0275Cя
           <Input
             onChange={onInputChange}
             type="text"

@@ -26,7 +26,7 @@ const PhonebookPage = () => {
   const onAddContact = newUser => {
     const uniqUserSearch = contacts.find(({ name }) => name === newUser.name);
     uniqUserSearch
-      ? toast.info(`"${uniqUserSearch.name}" is already in contacts`)
+      ? toast.info(`"${uniqUserSearch.name}" вже є в телефонній книзі`)
       : dispatch(addContacts(newUser));
   };
 
@@ -35,11 +35,11 @@ const PhonebookPage = () => {
   };
   return (
     <PhonebookMain>
-      <Section title="Phonebook">
+      <Section title="Телефонна книга">
         <Phonebook onAddContact={onAddContact} />
       </Section>
 
-      <Section title="Contacts">
+      <Section title="Контакти">
         <Filter onChangeFilter={onChangeFilter} />
         <ContactList />
       </Section>

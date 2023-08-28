@@ -5,7 +5,7 @@ export const Filter = ({ onChangeFilter }) => {
   return (
     <>
       <Label>
-        Шукай контакт за ім"ям
+        Шукати контакт
         <Input onChange={e => onChangeFilter(e)} type="text" name="filter" />
       </Label>
     </>

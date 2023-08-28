@@ -21,12 +21,12 @@ export const UserMenu = () => {
 
   const onLogout = () => {
     dispatch(logout()).then(response => {
-      if (response.payload === 'Request failed with status code 400') {
-        toast.error('Oops...Something went wrong. Try later!');
+      if (response.payload === 'Запит не виконано, помилка - 400') {
+        toast.error('Ой-йо...Щось зламалось. Спробуй пізніше!');
         return;
       }
       if (!response.payload) {
-        toast.success('You are successfully logout!');
+        toast.success('Ти успішно вийшов! Скоріше повертайся!');
         navigate('/', { replace: true });
       }
     });
@@ -36,12 +36,12 @@ export const UserMenu = () => {
     <UserMenuWrapper>
       {!isMobile && (
         <Hello>
-          <FcReading size={25} style={{ marginRight: '10px' }} /> Hello, {name}!
+          <FcReading size={25} style={{ marginRight: '10px' }} /> Привіт, {name}!
         </Hello>
       )}
 
       <LogoutBtn onClick={onLogout} type="button">
-        Logout
+        Вийти
         <HiOutlineLogout />
       </LogoutBtn>
     </UserMenuWrapper>

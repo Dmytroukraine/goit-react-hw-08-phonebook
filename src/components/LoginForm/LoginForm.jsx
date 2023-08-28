@@ -40,16 +40,16 @@ export const LoginForm = () => {
   const onFormSubmit = e => {
     e.preventDefault();
     dispatch(login(userRegisterData)).then(response => {
-      if (response.payload === 'Request failed with status code 400') {
-        toast.error('Oops..Wrong email or password!');
+      if (response.payload === 'Реєстрація не завершена, код помилки - 400') {
+        toast.error('Ой-йо..Пароль або пошта невірні!');
         return;
       }
       if (response.payload === 'Network Error') {
-        toast.error('Oops..Network Error!');
+        toast.error('Ой-йо..Помилка звU+0275Cязку!');
         return;
       }
       if (response.payload.token) {
-        toast.success('You are successfully log in!');
+        toast.success('Вітаю! Ти успішно увійшов!');
         navigate('/', { replace: true });
         onFormReset();
       }
